@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -26,7 +27,7 @@ public class Booking {
 	@NotNull(message = "Check-in date is required")
 	private LocalDate checkInDate;
 	
-	@NotNull(message = "Check-out date is required")
+	@Future(message = "Check-out date must be in the future")
 	private LocalDate checkOutDate;
 	
 	@Min(value = 1, message = "Number of adults must not be less that 1")
