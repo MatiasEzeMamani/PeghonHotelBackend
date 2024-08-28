@@ -1,7 +1,8 @@
 package com.phengondev.PhegonHotel.security;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.CachingUserDetailsService;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,9 +11,9 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.phengondev.PhegonHotel.service.CustomUserDetailsService;
 import com.phengondev.PhegonHotel.utils.JWTUtils;
 
-import io.jsonwebtoken.io.IOException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,10 +26,10 @@ public class JWTAuthFilter extends OncePerRequestFilter{
 	private JWTUtils jwtUtils;
 	
 	@Autowired
-	private CachingUserDetailsService cachingUserDetailsService;
+	private CustomUserDetailsService customUserDetailsService;
 	
 	@Override
-	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException, java.io.IOException {
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 		
 		final String authHeader = request.getHeader("Authorization");
 		final String jwtToken;
@@ -43,7 +44,7 @@ public class JWTAuthFilter extends OncePerRequestFilter{
 		userEmail = jwtUtils.extractUserName(jwtToken);
 		
 		if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-			UserDetails userDetails = cachingUserDetailsService.loadUserByUsername(userEmail);
+			UserDetails userDetails = customUserDetailsService.loadUserByUsername(userEmail);
 			if (jwtUtils.isValidToken(jwtToken, userDetails)) {
 				SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
 				UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
