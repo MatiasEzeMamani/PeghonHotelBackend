@@ -42,21 +42,6 @@ El proyecto es parte de un tutorial más amplio que cubre la construcción de un
 - **Room Controller** - Controlador de habitaciones.
 - **Booking Controller** - Controlador de reservas.
 
-## Cómo Ejecutar el Proyecto
-
-1. **Clona el Repositorio:**  
-   Clona el repositorio utilizando el siguiente comando:
-   ```bash
-   git clone https://github.com/tu-usuario/nombre-del-repositorio.git
-
-2. **Ejecuta el Backend:**  
-   Navega al directorio del proyecto y ejecuta el backend usando Spring Boot con el siguiente comando:
-   ```bash
-   ./mvnw spring-boot:run
-
-3. **Conecta con el Frontend:**  
-   Asegúrate de que el frontend esté en desarrollo o en otro repositorio y esté configurado para conectar con este backend. El frontend se encuentra en otro repositorio y debe estar en ejecución para que la aplicación completa funcione correctamente. Para ello, configura las URLs de las API en el frontend para que apunten a este backend, y asegúrate de que el servidor de frontend esté ejecutándose, generalmente con `npm start` o el comando equivalente para tu configuración de React.js.
-
 ### Recursos Utilizados
 
 - [Spring Boot](https://spring.io/projects/spring-boot) - Framework para el desarrollo del backend.
