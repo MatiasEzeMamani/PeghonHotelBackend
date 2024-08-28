@@ -46,6 +46,7 @@ public class Utils {
 		roomDTO.setRoomType(room.getRoomType());
 		roomDTO.setRoomPrice(room.getRoomPrice());
 		roomDTO.setRoomPhotoUrl(room.getRoomPhotoUrl());
+		roomDTO.setRoomDescription(room.getRoomDescription());
 		return roomDTO;
 	}
 	
