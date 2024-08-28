@@ -42,15 +42,6 @@ El proyecto es parte de un tutorial más amplio que cubre la construcción de un
 - **Room Controller** - Controlador de habitaciones.
 - **Booking Controller** - Controlador de reservas.
 
-### Recursos Utilizados
-
-- [Spring Boot](https://spring.io/projects/spring-boot) - Framework para el desarrollo del backend.
-- [AWS S3](https://aws.amazon.com/s3/) - Servicio de almacenamiento en la nube utilizado para gestionar archivos.
-
-## Nota
-
-Este repositorio solo contiene la parte del backend del proyecto. La aplicación web completa incluye un frontend construido con **React.js**, que se encuentra en un repositorio separado. Ambos repositorios están diseñados para trabajar juntos y proporcionar una solución web integral.
-
 ## Autor
 
 Este proyecto está basado en un tutorial de YouTube que sigo para mejorar mis habilidades en desarrollo full-stack con Spring Boot y React.js. Si tienes preguntas o sugerencias, no dudes en contactarme a través de mis redes sociales o perfiles de desarrollo.
